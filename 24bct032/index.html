@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Company Leo</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>company Leo</h1>
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="#works">Selected Works</a>
+    <a href="#charts">insights</a>
+    <a href="#news">Latest News</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="about" class="section">
+  <h2>About Us</h2>
+  <div class="about-content">
+    <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=600&q=80" alt="Our Company" />
+    <p>
+      We are a creative company specializing in script, screenplay and production.
+      Our mission is to create innovative and engaging movies
+    </p>
+  </div>
+</section>
+
+<section id="works" class="section">
+  <h2>Selected Works</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="Work 1" />
+    <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=400&q=80" alt="Work 2" />
+    <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=400&q=80" alt="Work 3" />
+    <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=400&q=80" alt="Work 4" />
+  </div>
+</section>
+
+<section id="charts" class="section">
+  <h2>Line Chart</h2>
+  <canvas id="lineChart" width="700" height="400"></canvas>
+</section>
+
+<section id="news" class="section">
+  <h2>Latest News</h2>
+  <div class="news-items">
+    <article class="news-item">
+      <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=300&q=80" alt="News 1" />
+      <h3>cinema industry</h3>
+      <p>We are excited to announce that our next project is "Leo".</p>
+    </article>
+    <article class="news-item">
+      <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=300&q=80" alt="News 2" />
+      <h3>New Partnership with seven screen studio</h3>
+      <p>Our collaboration with Thalapathy vijay and lokesh kanagaraj.</p>
+    </article>
+    <article class="news-item">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=300&q=80" alt="News 3" />
+      <h3>october 10 2023</h3>
+      <p>Join our webinar where experts discuss the latest trends in user experience design.</p>
+    </article>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="Name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="Email" required />
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="Message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 Our Company. All rights reserved.
+</footer>
+
+<script>
+    const canvas = document.getElementById('lineChart');
+    const ctx = canvas.getContext('2d');
+  
+    const data = [500, 700, 1000, 900, 1400, 1600, 2000];
+    const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+  
+    const padding = 50;
+    const chartWidth = canvas.width - padding * 2;
+    const chartHeight = canvas.height - padding * 2;
+    const maxVal = Math.max(...data);
+  
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.beginPath();
+    ctx.moveTo(padding, padding);
+    ctx.lineTo(padding, canvas.height - padding);
+    ctx.lineTo(canvas.width - padding, canvas.height - padding);
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  
+    const barHeight = chartHeight / data.length * 0.6;
+    const gap = (chartHeight / data.length) * 0.4;
+  
+    data.forEach((val, i) => {
+      const y = padding + i * (barHeight + gap);
+      const barWidth = (val / maxVal) * chartWidth;
+      const x = padding;
+  
+      ctx.fillStyle = '#007BFF';
+      ctx.fillRect(x, y, barWidth, barHeight);
+  
+      ctx.fillStyle = '#000';
+      ctx.font = '12px Arial';
+      ctx.fillText(val, x + barWidth + 10, y + barHeight / 2 + 4);
+  
+      ctx.fillStyle = '#333';
+      ctx.textAlign = 'right';
+      ctx.fillText(labels[i], x - 10, y + barHeight / 2 + 4);
+    });
+  </script>
+  
+  </script>
+  
+</script>
+
+</body>
+</html>
