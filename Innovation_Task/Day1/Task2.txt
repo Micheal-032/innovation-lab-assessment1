@@ -1,0 +1,44 @@
+let num = 42;
+console.log("Number:", num);
+
+let str = "Hello";
+console.log("String:", str);
+
+let isActive = true;
+console.log("Boolean:", isActive);
+
+let nothing = null;
+console.log("Null:", nothing);
+
+let notDefined;
+console.log("Undefined:", notDefined);
+
+let person = { name: "Ravi", age: 30 };
+console.log("Object:", person);
+
+let sym = Symbol("id");
+console.log("Symbol:", sym);
+
+let strToNum = Number("123");
+console.log("Converted string to number:", strToNum);
+
+let invalidStrToNum = Number("abc");
+console.log("Invalid string to number:", invalidStrToNum);
+
+let numToStr = String(789);
+console.log("Converted number to string:", numToStr);
+
+let boolToStr = String(false);
+console.log("Boolean to string:", boolToStr);
+
+let strToBool = Boolean("hello");
+console.log("String to boolean:", strToBool);
+
+let emptyStrToBool = Boolean("");
+console.log("Empty string to boolean:", emptyStrToBool);
+
+let implicitConversion1 = "5" * 2;
+console.log("Implicit conversion (string * number):", implicitConversion1);
+
+let implicitConversion2 = "10" + 5;
+console.log("Implicit conversion (string + number):", implicitConversion2);
